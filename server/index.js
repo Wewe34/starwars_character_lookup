@@ -1,14 +1,18 @@
 const express = require("express");
 const axios = require("axios");
+const characters = require('./routers/characters');
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.get("/test-proxy", async (req, res) => {
-    await axios.get("https://swapi.dev/api/people/1").then(data => console.log(data));
-    res.json({ message: "The server sent me!" });
-  });
+require('dotenv').config();
+
+app.use('/characters', characters);
+
+app.get('/', (req, res) => {
+  res.send({message: 'Hey Im from the server!'});
+})
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
