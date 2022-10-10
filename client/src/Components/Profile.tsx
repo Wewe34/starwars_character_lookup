@@ -22,7 +22,7 @@ interface iCharacters {
 
 function Profile() {
   const [characters, setCharacters] = useState<iCharacters[]>([]);
-  const [characterName, setCharacterName] = useState('e');
+  const [characterName, setCharacterName] = useState('');
   
   useEffect(() => {
     axios.get("/characters", {params: {name: characterName}}).then(result =>{
@@ -31,16 +31,21 @@ function Profile() {
     })
   },[characterName])
 
-  function handleCharacterRequest() {
-    setCharacterName('R2');
+  function handleCharacterRequest(name: string) {
+    console.log('charName', name)
+    setCharacterName(name);
+  }
+
+  function handleOnChange(event:any) {
+    setCharacterName(event.target.value);
   }
 
   return (
     <div>
         <div>
-            <p></p>
+            <input type="search" name="character-lookup" id="character-search" onChange={handleOnChange} />
             {characters.length > 1 ? characters.map((character, index) => {
-                return <a onClick={handleCharacterRequest}><p key={index}>{character.name}</p></a>
+                return <a onClick={() => handleCharacterRequest(character.name)}><p key={index}>{character.name}</p></a>
             }) : characters.length === 1 ? 
             <div>
                 <p>{characters[0].name}</p>
