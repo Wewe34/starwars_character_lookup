@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const apicache = require('apicache');
 
-router.get('/', async (req, res) => {
+let cache = apicache.middleware;
+
+router.get('/', cache('1 minutes'), async (req, res) => {
     try {
         const params = new URLSearchParams({
           search: req.query.name
