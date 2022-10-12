@@ -83,23 +83,25 @@ function Profile() {
   const [buttonToggle, setButtonToggle] = useState<Boolean>(false);
   
 
-  function handleCharacterRequest() {
-    console.log('charName', characterName);
-    
-    axios.get("/characters", {params: {name: characterName}}).then(result =>{
+  function handleCharacterRequest(event: any) {
+    let name;
+    if (event.target.innerHTML === 'Search') {
+        name = characterName;
+    } else {
+        name = event.target.innerHTML
+    }
+    axios.get("/characters", {params: {name}}).then(result =>{
         setButtonToggle(true)
-        console.log('result',result.data)
         setCharacters(result.data);
     })
-    console.log('chars',characters)
     setButtonToggle(false);
   }
 
   function handleOnChange(event:any) {
-    console.log(event.target.value)
     setCharacterName(event.target.value);
-    console.log(characterName)
   }
+
+ 
 
   return (
     <div>
@@ -116,7 +118,7 @@ function Profile() {
                 <div>
                     <p>Did you mean?</p>
                     {characters.map((character, index) => {
-                    return <a onClick={handleCharacterRequest} key={index}><p>{character.name}</p></a>})}
+                    return <p className="text-primary" onClick={handleCharacterRequest} key={index}><u>{character.name}</u></p>})}
                 </div>
              : characters.length === 1 ? 
             <div>
@@ -162,7 +164,7 @@ function Profile() {
                                     <Card.Text className="text-primary m-0 h4">{starship.name}</Card.Text>
                                     <Card.Text className="text-primary m-0">Model: {starship.model}</Card.Text>
                                 </Card.Body>
-                    }): 'No starships.'}
+                    }): <p className="text-primary">No Starships.</p>}
                 </Card>
             </div> 
             : buttonToggle && characters.length === 0 ? 'Sorry, no character matches your search criteria.': ''}
