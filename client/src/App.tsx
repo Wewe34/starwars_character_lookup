@@ -1,8 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
-import Profile from './Components/Profile';
-import {Button} from 'react-bootstrap';
+import Profile from './Components/Profile/Profile';
 
 function App() {
 

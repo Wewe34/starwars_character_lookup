@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import {Button, Card} from 'react-bootstrap';
+import "../Profile/Profile.css"
 
 interface ICharacter {
     name: string, 
@@ -119,7 +120,7 @@ function Profile() {
                 <div>
                     <p>Did you mean?</p>
                     {characters.map((character, index) => {
-                    return <p className="text-primary" onClick={handleCharacterRequest} key={index}><u>{character.name}</u></p>})}
+                    return <p className="text-primary search-list" onClick={handleCharacterRequest} key={index}><u>{character.name}</u></p>})}
                 </div>
              : characters.length === 1 ? 
             <div>
