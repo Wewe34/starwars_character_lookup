@@ -17,7 +17,10 @@ router.get('/', cache('1 minutes'), async (req, res) => {
             if (characterInfo.length === 1) {
                 getFilms(characterInfo[0].films).then(filmData => {
                     getStarships(characterInfo[0].starships).then(starshipData => {
-                        res.send([Object.assign(characterInfo[0], {starships: starshipData, films: filmData})]);
+                        getSpecies(characterInfo[0].species).then(speciesData => {
+                            console.log('NEWFINAL', [Object.assign(characterInfo[0], {starships: starshipData, films: filmData, species: speciesData})]);
+                            res.send([Object.assign(characterInfo[0], {starships: starshipData, films: filmData, species: speciesData})]);
+                        })
                     })
                 })
             } else {
@@ -43,6 +46,13 @@ async function getStarships(starships) {
         return axios.get(starship).then(results => starship = results.data);
     }))
     return starshipObjs;
+}
+
+async function getSpecies(characterSpecies) {
+    const speciesObjs = await Promise.all(characterSpecies.map(species => {
+        return axios.get(species).then(results => species = results.data);
+    }))
+    return speciesObjs;
 }
 
 

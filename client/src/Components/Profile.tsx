@@ -13,7 +13,7 @@ interface ICharacter {
     gender: string, 
     homeworld: string, 
     films: IFilm[], 
-    species: string[], 
+    species: ISpecies[], 
     vehicles: string[],
     starships: IStarship[],
     created: string, 
@@ -92,6 +92,7 @@ function Profile() {
     }
     axios.get("/characters", {params: {name}}).then(result =>{
         setButtonToggle(true)
+        console.log('results',result.data)
         setCharacters(result.data);
     })
     setButtonToggle(false);
@@ -123,8 +124,12 @@ function Profile() {
              : characters.length === 1 ? 
             <div>
                 <p className="display-4 text-uppercase text-danger">{characters[0].name}</p>
-                <p>{` ${characters[0].name} is of the species, ${characters[0].species} which speaks the language
-                    ${characters[0]}`}</p>
+                {characters[0].species.length > 0 ? 
+                characters[0].species.map(s => {
+                        return <p>{`${characters[0].name} is of the species ${s.name}, and speaks the language ${s.language}.`}</p>
+                })  
+                 : <p>There is no species data.</p>}
+               
                 <div className="row p-2">
                     <Card className="col m-1 bg-primary bg-gradient">
                         <Card.Text className="text-white m-0 h1 pt-4">{characters[0].birth_year}</Card.Text>
