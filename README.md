@@ -16,7 +16,7 @@ Technologies used:
 ### Get Started
 
 1) `git clone` 
-2) `cd server` and `npm run start`
+2) `cd server`, `npm install` then `npm run start`
 3) Open new terminal. 
-4) `cd client` and `npm run start` 
+4) `cd client`, `npm install` then `npm run start` 
 
