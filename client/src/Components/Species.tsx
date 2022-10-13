@@ -1,5 +1,4 @@
 import React from 'react';
-import { IFilm } from './Films';
 import { ICharacter} from './Profile/Profile';
 
 

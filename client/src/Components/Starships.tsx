@@ -39,7 +39,7 @@ const Starships = (props: IStarshipProps) => {
                             <Card.Text className="text-primary m-0 h4">{starship.name}</Card.Text>
                             <Card.Text className="text-primary m-0">Model: {starship.model}</Card.Text>
                         </Card.Body>
-            }): <p className="text-primary">No Starships.</p>}
+            }) : <p className="text-primary">No Starships.</p>}
         </Card>
     )
 }
