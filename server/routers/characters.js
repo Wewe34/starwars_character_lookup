@@ -8,7 +8,7 @@ const getSpecies = require('../services/species');
 
 let cache = apicache.middleware;
 
-router.get('/', cache('1 minutes'), async (req, res) => {
+router.get('/', cache('3 minutes'), async (req, res) => {
     try {
         const params = new URLSearchParams({
           search: req.query.name
