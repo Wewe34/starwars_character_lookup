@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import {Button, Card} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import About from '../About/About';
 import Films, { IFilm } from '../Films';
 import "../Profile/Profile.css"
