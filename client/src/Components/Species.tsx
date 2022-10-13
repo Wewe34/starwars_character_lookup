@@ -33,12 +33,11 @@ const Starships = (props: ISpeciesProps) => {
 
     return (
         <div>
-            <p className="display-4 text-uppercase text-danger">{character.name}</p>
             {species.length > 0 ? 
                 species.map(s => {
                     return <p>{`${character.name} is of the species ${s.name}, and speaks the language ${s.language}.`}</p>
             })  
-                : <p>There is no species data.</p>}
+                : <p>No species data.</p>}
         </div>
     )
 }
