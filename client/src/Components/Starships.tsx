@@ -34,8 +34,8 @@ const Starships = (props: IStarshipProps) => {
     return (
         <Card className="my-2 bg-light">
             <Card.Text className="text-dark h1 pt-4">STARSHIPS</Card.Text>
-            {starships.length > 0 ? starships.map(starship => {
-                return <Card.Body className="bg-dark bg-gradient m-2 rounded">
+            {starships.length > 0 ? starships.map((starship, index) => {
+                return <Card.Body className="bg-dark bg-gradient m-2 rounded" key={index}>
                             <Card.Text className="text-primary m-0 h4">{starship.name}</Card.Text>
                             <Card.Text className="text-primary m-0">Model: {starship.model}</Card.Text>
                         </Card.Body>

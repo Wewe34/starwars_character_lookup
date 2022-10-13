@@ -30,8 +30,8 @@ const Films = (props: IFilmsProps) => {
     return (
         <Card className="bg-light bg-gradient">
             <Card.Text className="text-dark h1 pt-4">FILMS</Card.Text>
-            {films.map(film => {
-                return <Card.Body className="bg-dark bg-gradient m-2 rounded">
+            {films.map((film, index) => {
+                return <Card.Body className="bg-dark bg-gradient m-2 rounded" key={index}>
                             <Card.Text className="text-warning m-0 h4">{film.title}</Card.Text>
                             <Card.Text className="text-warning m-0">Episode: {film.episode_id}</Card.Text>
                             <Card.Text className="text-warning m-0">Release Date: {film.release_date}</Card.Text>
