@@ -9,8 +9,6 @@ Technologies used:
 * Axios
 * Node
 * Express.js
-* Jest
-* React Testing Library
 * Bootstrapv5/Bootstrap Components
 
 ### Get Started
