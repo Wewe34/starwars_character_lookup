@@ -10,6 +10,8 @@ Technologies used:
 * Node
 * Express.js
 * Bootstrapv5/Bootstrap Components
+* Jest
+* React Testing Library
 
 ### Get Started
 
