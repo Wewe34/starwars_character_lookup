@@ -5,7 +5,7 @@ import Profile from './Components/Profile/Profile';
 function App() {
 
   return (
-    <div className="App">
+    <div className="App" data-testid="app-root">
         <Profile />
     </div>
   )
