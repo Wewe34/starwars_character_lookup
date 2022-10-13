@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import './App.css';
 import Profile from './Components/Profile/Profile';
