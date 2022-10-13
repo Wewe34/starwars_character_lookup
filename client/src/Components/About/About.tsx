@@ -14,7 +14,7 @@ const About = (props: IAboutProps) => {
 
     return (
         <div>
-            <div className="row p-2">
+            <div className="row p-2" data-testid="birth_hairColor">
                 <Card className="col m-1 bg-primary bg-gradient">
                     <Card.Text className="text-white m-0 h1 pt-4">{birth_year}</Card.Text>
                     <Card.Text className="text-dark h4 pb-4">Birth Year</Card.Text>
@@ -24,7 +24,7 @@ const About = (props: IAboutProps) => {
                     <Card.Text className="text-dark h4 pb-4">Hair Color</Card.Text>
                 </Card>
             </div>
-            <div className="row p-2">
+            <div className="row p-2" data-testid="height_weight">
                 <Card className="col m-1 bg-primary bg-gradient">
                     <Card.Text className="text-white m-0 h1 pt-4">{height}</Card.Text>
                     <Card.Text className="text-dark h4 pb-4">Height</Card.Text>

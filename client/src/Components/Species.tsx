@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import { IFilm } from './Films';
 import { ICharacter} from './Profile/Profile';
 
@@ -21,7 +20,7 @@ export interface ISpecies {
     homeworld: null, 
     language: string, 
     people: string[],
-    films: IFilm[],
+    films: string[],
     created: string, 
     edited: string, 
     url: string
