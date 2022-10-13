@@ -15,7 +15,7 @@ Technologies used:
 
 ### Get Started
 
-1) `git clone` 
+1) `git clone https://github.com/Wewe34/starwars_character_lookup.git` 
 2) `cd server`, `npm install` then `npm run start`
 3) Open new terminal. 
 4) `cd client`, `npm install` then `npm run start` 
